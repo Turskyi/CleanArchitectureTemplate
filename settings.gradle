@@ -1,0 +1,4 @@
+rootProject.name='DemoCleanArchitecture'
+include ':presenter'
+include ':data'
+include ':domain'
