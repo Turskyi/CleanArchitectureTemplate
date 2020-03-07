@@ -14,5 +14,5 @@ class MainActivityModule {
     fun provideViewModel(
         activity: MainActivity,
         provider: InjectionViewModelProvider<MainActivityViewModel>
-    ): MainActivityModule  = provider.get(activity)
+    ): MainActivityViewModel  = provider.get(activity)
 }
