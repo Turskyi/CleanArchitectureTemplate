@@ -6,6 +6,7 @@ import dagger.android.support.AndroidSupportInjectionModule
 import ua.turskyi.democleanarchitecture.App
 import ua.turskyi.democleanarchitecture.common.di.module.ActivityInjectorsModule
 import ua.turskyi.democleanarchitecture.common.di.module.AppModule
+import ua.turskyi.democleanarchitecture.common.di.module.FragmentInjectorsModule
 import javax.inject.Singleton
 
 // TODO: 11
@@ -14,7 +15,8 @@ import javax.inject.Singleton
     modules = [
         AppModule::class,
         ActivityInjectorsModule::class,
-        AndroidSupportInjectionModule::class]
+        AndroidSupportInjectionModule::class,
+        FragmentInjectorsModule::class]
 )
 interface AppComponent {
     @Component.Builder

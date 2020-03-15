@@ -2,6 +2,8 @@ package ua.turskyi.democleanarchitecture.common.di.module
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
+import ua.turskyi.democleanarchitecture.features.home.HomeActivity
+import ua.turskyi.democleanarchitecture.features.home.HomeActivityModule
 import ua.turskyi.democleanarchitecture.features.main.MainActivity
 import ua.turskyi.democleanarchitecture.features.main.MainActivityModule
 
@@ -12,4 +14,6 @@ abstract class ActivityInjectorsModule {
     @ContributesAndroidInjector(modules = [MainActivityModule::class])
     abstract fun mainActivityInjector(): MainActivity
 
+    @ContributesAndroidInjector(modules = [HomeActivityModule::class])
+    abstract fun homeActivityInjector(): HomeActivity
 }
