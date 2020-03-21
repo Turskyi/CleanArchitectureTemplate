@@ -1,4 +1,4 @@
-package ua.turskyi.democleanarchitecture.features.home
+package ua.turskyi.democleanarchitecture.features.second
 
 import dagger.Module
 import dagger.Provides
@@ -7,12 +7,12 @@ import ua.turskyi.democleanarchitecture.common.di.qualifiers.ViewModelInjection
 
 // TODO: 9
 @Module
-class HomeActivityModule {
+class SecondActivityModule {
 
     @ViewModelInjection
     @Provides
     fun provideViewModel(
-        activity: HomeActivity,
-        provider: InjectionViewModelProvider<HomeActivityVM>
-    ): HomeActivityVM  = provider.get(activity)
+        activity: SecondActivity,
+        provider: InjectionViewModelProvider<SecondActivityVM>
+    ): SecondActivityVM  = provider.get(activity)
 }

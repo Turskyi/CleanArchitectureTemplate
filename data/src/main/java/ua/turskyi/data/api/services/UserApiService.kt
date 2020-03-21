@@ -4,7 +4,7 @@ import io.reactivex.Single
 import retrofit2.http.GET
 import ua.turskyi.data.api.responses.UserListResponse
 
-interface UserService {
+interface UserApiService {
     @GET("users")
     fun getUsers(): Single<UserListResponse>
 }

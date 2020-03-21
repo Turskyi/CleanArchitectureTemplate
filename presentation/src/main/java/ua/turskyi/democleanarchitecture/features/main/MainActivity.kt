@@ -10,7 +10,7 @@ import org.jetbrains.anko.intentFor
 import ua.turskyi.democleanarchitecture.R
 import ua.turskyi.democleanarchitecture.common.di.qualifiers.ViewModelInjection
 import ua.turskyi.democleanarchitecture.common.ui.base.BaseActivity
-import ua.turskyi.democleanarchitecture.features.home.HomeActivity
+import ua.turskyi.democleanarchitecture.features.second.SecondActivity
 import ua.turskyi.democleanarchitecture.features.main.detail.DetailFragment
 import javax.inject.Inject
 
@@ -39,7 +39,7 @@ class MainActivity : BaseActivity() {
 
     private fun initListeners() {
         tvMain.setOnClickListener {
-            startActivity(HomeActivity.getIntent(this, true))
+            startActivity(SecondActivity.getIntent(this, true))
         }
 
         tvFragment.setOnClickListener {
@@ -61,10 +61,11 @@ class MainActivity : BaseActivity() {
     }
 
     private fun showDetailFragmentById(id: Long) {
-        val ft = supportFragmentManager.beginTransaction()
-        ft.replace(R.id.fragmentContainer, DetailFragment.newInstance(id))
-        ft.addToBackStack(null)
-        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-        ft.commit()
+       supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragmentContainer, DetailFragment.newInstance(id))
+            addToBackStack(null)
+            setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+            commit()
+        }
     }
 }
