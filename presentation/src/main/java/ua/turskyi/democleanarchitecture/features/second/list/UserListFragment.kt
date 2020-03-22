@@ -9,25 +9,26 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_list.*
 import ua.turskyi.democleanarchitecture.R
 import ua.turskyi.democleanarchitecture.common.di.qualifiers.ViewModelInjection
-import ua.turskyi.democleanarchitecture.features.main.detail.DetailFragment
-import ua.turskyi.democleanarchitecture.features.second.list.adapter.ExampleAdapter
-import ua.turskyi.domain.models.User
+import ua.turskyi.democleanarchitecture.common.ui.base.BaseFragment
+import ua.turskyi.democleanarchitecture.features.second.list.adapter.UserListFragmentAdapter
 import javax.inject.Inject
 
 /**
  * A simple [ListFragment] subclass.
  */
-class UserListFragment : Fragment(R.layout.fragment_list) {
+class UserListFragment : BaseFragment() {
 
     companion object {
-        fun newInstance(): ListFragment = ListFragment()
+        fun newInstance()= UserListFragment()
     }
 
-    lateinit var adapter: ExampleAdapter
+    lateinit var adapterUser: UserListFragmentAdapter
+
+    override fun layoutRes() = R.layout.fragment_list
 
     @Inject
     @field:ViewModelInjection
-    lateinit var viewModel: ListFragmentVM
+    lateinit var viewModel: UserListFragmentVM
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -37,14 +38,14 @@ class UserListFragment : Fragment(R.layout.fragment_list) {
 
     private fun initObservers() {
         viewModel.usersLiveData.observe(viewLifecycleOwner, Observer {
-            adapter.setData(it.toMutableList())
+            adapterUser.setData(it.toMutableList())
         })
 
     }
 
     private fun initAdapter() {
-        adapter = ExampleAdapter()
-        recyclerView.adapter = adapter
+        adapterUser = UserListFragmentAdapter()
+        recyclerView.adapter = adapterUser
         recyclerView.layoutManager = LinearLayoutManager(activity?.applicationContext)
     }
 }

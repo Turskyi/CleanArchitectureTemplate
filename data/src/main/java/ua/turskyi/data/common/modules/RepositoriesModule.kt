@@ -14,5 +14,4 @@ class RepositoriesModule {
     fun provideUserRepository(
         userRepositoryImpl: UserRepositoryImpl
     ): UserRepository = userRepositoryImpl
-
 }

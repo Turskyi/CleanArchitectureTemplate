@@ -19,8 +19,9 @@
 
     <FrameLayout
         android:id="@+id/listContainer"
-        app:layout_constraintTop_toBottomOf="@+id/tvList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvList" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

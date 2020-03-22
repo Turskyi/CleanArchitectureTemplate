@@ -5,11 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.example_item.view.*
+import kotlinx.android.synthetic.main.user_item.view.*
 import ua.turskyi.democleanarchitecture.R
 import ua.turskyi.domain.models.User
 
-class ExampleAdapter: RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder>() {
+class UserListFragmentAdapter: RecyclerView.Adapter<UserListFragmentAdapter.ExampleViewHolder>() {
     private val exampleList: MutableList<User> = mutableListOf()
     fun setData(exampleList: MutableList<User>) {
         this.exampleList.clear()
@@ -19,7 +19,7 @@ class ExampleAdapter: RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExampleViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(
-            R.layout.example_item,
+            R.layout.user_item,
             parent, false)
         return ExampleViewHolder(itemView)
     }

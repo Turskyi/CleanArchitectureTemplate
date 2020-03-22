@@ -20,7 +20,8 @@ import javax.inject.Singleton
         AndroidSupportInjectionModule::class,
         FragmentInjectorsModule::class,
         RxSchedulersModule::class,
-        DataModule::class]
+        DataModule::class
+    ]
 )
 interface AppComponent {
     @Component.Builder
@@ -29,6 +30,5 @@ interface AppComponent {
         fun application(application: App): Builder
         fun build(): AppComponent
     }
-
     fun inject(app: App)
 }
