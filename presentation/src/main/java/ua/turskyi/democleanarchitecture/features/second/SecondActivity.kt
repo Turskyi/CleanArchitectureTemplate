@@ -3,7 +3,7 @@ package ua.turskyi.democleanarchitecture.features.second
 import android.app.Activity
 import android.os.Bundle
 import android.view.View.GONE
-import kotlinx.android.synthetic.main.activity_list.*
+import kotlinx.android.synthetic.main.activity_second.*
 import org.jetbrains.anko.intentFor
 import ua.turskyi.democleanarchitecture.R
 import ua.turskyi.democleanarchitecture.common.di.qualifiers.ViewModelInjection
@@ -25,7 +25,7 @@ class SecondActivity : BaseActivity() {
     @Inject
     @field:ViewModelInjection
     lateinit var activityVM: SecondActivityVM
-    override fun layoutRes(): Int = R.layout.activity_list
+    override fun layoutRes(): Int = R.layout.activity_second
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.fragment_list.*
 import ua.turskyi.democleanarchitecture.R
 import ua.turskyi.democleanarchitecture.common.di.qualifiers.ViewModelInjection
 import ua.turskyi.democleanarchitecture.common.ui.base.BaseFragment
-import ua.turskyi.democleanarchitecture.features.second.list.adapter.ExampleAdapter
+import ua.turskyi.democleanarchitecture.features.second.list.adapter.UserListFragmentAdapter
 import javax.inject.Inject
 
 class UserListFragment : BaseFragment() {
@@ -22,7 +22,7 @@ class UserListFragment : BaseFragment() {
     @field:ViewModelInjection
     lateinit var viewModel: UserListFragmentVM
 
-    lateinit var adapter: ExampleAdapter
+    private lateinit var adapter: UserListFragmentAdapter
 
     override fun layoutRes() = R.layout.fragment_list
 
@@ -39,7 +39,6 @@ class UserListFragment : BaseFragment() {
     }
 
     private fun initAdapter() {
-        adapter = ExampleAdapter()
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(activity?.applicationContext)
     }
