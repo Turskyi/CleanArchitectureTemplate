@@ -22,7 +22,7 @@ class UserListFragment : BaseFragment() {
     @field:ViewModelInjection
     lateinit var viewModel: UserListFragmentVM
 
-    private lateinit var adapter: UserListFragmentAdapter
+    lateinit var adapter: UserListFragmentAdapter
 
     override fun layoutRes() = R.layout.fragment_list
 
@@ -39,6 +39,7 @@ class UserListFragment : BaseFragment() {
     }
 
     private fun initAdapter() {
+        adapter = UserListFragmentAdapter()
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(activity?.applicationContext)
     }
