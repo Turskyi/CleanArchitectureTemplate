@@ -1,4 +1,4 @@
-package ua.turskyi.data.repositories
+package ua.turskyi.data.repository
 
 import io.reactivex.Single
 import ua.turskyi.data.api.services.UserApiService
@@ -7,7 +7,7 @@ import ua.turskyi.domain.repositories.UserRepository
 import javax.inject.Inject
 
 // TODO: 17
-class UserRepositoryImpl @Inject constructor(private val userApiService: UserApiService
+class UsersRepositoryImpl @Inject constructor(private val userApiService: UserApiService
 ) : UserRepository {
 
     override fun getUsers(): Single<List<User>> {

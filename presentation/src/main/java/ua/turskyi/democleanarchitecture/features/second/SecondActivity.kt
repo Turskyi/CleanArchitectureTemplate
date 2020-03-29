@@ -3,7 +3,6 @@ package ua.turskyi.democleanarchitecture.features.second
 import android.app.Activity
 import android.os.Bundle
 import android.view.View.GONE
-import androidx.fragment.app.FragmentTransaction
 import kotlinx.android.synthetic.main.activity_list.*
 import org.jetbrains.anko.intentFor
 import ua.turskyi.democleanarchitecture.R
@@ -17,32 +16,31 @@ class SecondActivity : BaseActivity() {
 
     companion object {
         private const val IS_ACTIVATED = "is_activated"
-        fun getIntent(activity: Activity, isActivated: Boolean) = activity.intentFor<SecondActivity>(
-            IS_ACTIVATED to isActivated
-        )
+        fun getIntent(activity: Activity, isActivated: Boolean) =
+            activity.intentFor<SecondActivity>(
+                IS_ACTIVATED to isActivated
+            )
     }
 
     @Inject
     @field:ViewModelInjection
     lateinit var activityVM: SecondActivityVM
+    override fun layoutRes(): Int = R.layout.activity_list
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_list)
-
-      val act =  intent.getBooleanExtra(IS_ACTIVATED, false)
-        showListFragment()
+        val act = intent.getBooleanExtra(IS_ACTIVATED, false)
         tvList.setOnClickListener {
             startActivity(MainActivity.getIntent(this, GONE))
         }
+
+        showListFragment()
+
     }
 
     private fun showListFragment() {
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.listContainer, UserListFragment.newInstance())
-            addToBackStack(null)
-            setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-            commit()
-        }
+        val ft = supportFragmentManager.beginTransaction()
+        ft.replace(R.id.listContainer, UserListFragment.newInstance())
+        ft.commit()
     }
 }

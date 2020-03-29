@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 @Module
 class NetworkModule {
 
-//    there is on base url it putted directly
+//    there is base url it putted directly
     @Provides
     fun provideRetrofit(): Retrofit =
         Retrofit.Builder()
@@ -17,5 +17,4 @@ class NetworkModule {
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
-
 }

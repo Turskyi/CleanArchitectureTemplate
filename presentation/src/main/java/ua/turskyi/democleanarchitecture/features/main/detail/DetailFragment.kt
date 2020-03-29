@@ -7,13 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import ua.turskyi.democleanarchitecture.R
 import ua.turskyi.democleanarchitecture.common.di.qualifiers.ViewModelInjection
+import ua.turskyi.democleanarchitecture.common.ui.base.BaseFragment
 import ua.turskyi.democleanarchitecture.features.main.MainActivityViewModel
 import javax.inject.Inject
 
 /**
  * A simple [Fragment] subclass.
  */
-class DetailFragment(private var id: Long) : Fragment() {
+class DetailFragment(private var id: Long) : BaseFragment() {
 
     companion object {
         fun newInstance(id: Long): DetailFragment = DetailFragment(id)
@@ -23,12 +24,7 @@ class DetailFragment(private var id: Long) : Fragment() {
     @field:ViewModelInjection
     lateinit var viewModel: DetailFragmentViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return inflater.inflate(R.layout.fragment_detail, container, false)
-    }
+    override fun layoutRes() = R.layout.fragment_detail
 
     override fun onStart() {
         super.onStart()

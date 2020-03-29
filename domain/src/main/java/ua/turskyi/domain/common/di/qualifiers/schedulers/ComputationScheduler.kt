@@ -1,4 +1,4 @@
-package ua.turskyi.domain.common.di.quilefires.schedulers
+package ua.turskyi.domain.common.di.qualifiers.schedulers
 
 import javax.inject.Qualifier
 

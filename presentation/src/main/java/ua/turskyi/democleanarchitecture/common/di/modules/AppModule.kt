@@ -1,4 +1,4 @@
-package ua.turskyi.democleanarchitecture.common.di.module
+package ua.turskyi.democleanarchitecture.common.di.modules
 
 import android.app.Application
 import android.content.Context

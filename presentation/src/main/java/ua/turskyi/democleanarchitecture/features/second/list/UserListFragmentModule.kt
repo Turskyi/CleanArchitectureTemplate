@@ -8,12 +8,12 @@ import ua.turskyi.democleanarchitecture.common.di.qualifiers.ViewModelInjection
 
 // TODO: 9
 @Module
-class ListFragmentModule {
+class UserListFragmentModule {
 
     @ViewModelInjection
     @Provides
     fun provideViewModel(
-        fragmentUser: UserListFragment,
-        provider: InjectionViewModelProvider<ListFragmentVM>
-    ): ListFragmentVM  = provider.get(fragmentUser.activity as FragmentActivity)
+        userListFragment: UserListFragment,
+        provider: InjectionViewModelProvider<UserListFragmentVM>
+    ): UserListFragmentVM  = provider.get(userListFragment.activity as FragmentActivity)
 }

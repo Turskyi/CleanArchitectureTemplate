@@ -7,8 +7,9 @@ import ua.turskyi.domain.models.User
 import ua.turskyi.domain.usecase.GetUsersUseCase
 import javax.inject.Inject
 
-class ListFragmentVM @Inject constructor(private val usersUseCase: GetUsersUseCase) :
-    BaseViewModel() {
+class UserListFragmentVM @Inject constructor(
+    private val usersUseCase: GetUsersUseCase
+) : BaseViewModel() {
 
     val usersLiveData = MutableLiveData<List<User>>()
 
@@ -22,9 +23,9 @@ class ListFragmentVM @Inject constructor(private val usersUseCase: GetUsersUseCa
                 usersLiveData.postValue(it)
             },
             Consumer {
-if (it != null){
+                if (it != null) {
 
-}
+                }
             })
         compositeDisposable.add(disposable)
     }

@@ -1,12 +1,12 @@
-package ua.turskyi.democleanarchitecture.common.di.module
+package ua.turskyi.democleanarchitecture.common.di.modules
 
 import dagger.Module
 import dagger.Provides
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import ua.turskyi.domain.common.di.quilefires.schedulers.ComputationScheduler
-import ua.turskyi.domain.common.di.quilefires.schedulers.IoScheduler
-import ua.turskyi.domain.common.di.quilefires.schedulers.MainScheduler
+import ua.turskyi.domain.common.di.qualifiers.schedulers.ComputationScheduler
+import ua.turskyi.domain.common.di.qualifiers.schedulers.IoScheduler
+import ua.turskyi.domain.common.di.qualifiers.schedulers.MainScheduler
 
 //TODO 16
 @Module

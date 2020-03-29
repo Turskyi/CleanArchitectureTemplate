@@ -7,6 +7,7 @@ import android.view.View.VISIBLE
 import androidx.fragment.app.FragmentTransaction
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.toast
 import ua.turskyi.democleanarchitecture.R
 import ua.turskyi.democleanarchitecture.common.di.qualifiers.ViewModelInjection
 import ua.turskyi.democleanarchitecture.common.ui.base.BaseActivity
@@ -16,6 +17,7 @@ import javax.inject.Inject
 
 // TODO: 5
 class MainActivity : BaseActivity() {
+    override fun layoutRes(): Int = R.layout.activity_main
 
     companion object {
         const val VISIBILITY = "visibility"
@@ -33,8 +35,8 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
 
         var visibilityFromIntent = intent.getIntExtra(VISIBILITY, GONE)
-
         initListeners()
+        toast("Toast from Anko")
     }
 
     private fun initListeners() {

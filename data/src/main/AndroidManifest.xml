@@ -1,2 +1,1 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ua.turskyi.data" />
+<manifest package="ua.turskyi.data" />

@@ -3,8 +3,8 @@ package ua.turskyi.domain.usecase
 import io.reactivex.Scheduler
 import io.reactivex.disposables.Disposable
 import io.reactivex.functions.Consumer
-import ua.turskyi.domain.common.di.quilefires.schedulers.IoScheduler
-import ua.turskyi.domain.common.di.quilefires.schedulers.MainScheduler
+import ua.turskyi.domain.common.di.qualifiers.schedulers.IoScheduler
+import ua.turskyi.domain.common.di.qualifiers.schedulers.MainScheduler
 import ua.turskyi.domain.models.User
 import ua.turskyi.domain.repositories.UserRepository
 import javax.inject.Inject
