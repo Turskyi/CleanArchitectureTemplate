@@ -12,7 +12,7 @@ class MainActivityViewModel @Inject constructor(
     private val usersUseCase: GetUsersUseCase
 ) : BaseViewModel() {
 
-    val usersLiveData = MutableLiveData<List<User>>()
+    private val usersLiveData = MutableLiveData<List<User>>()
 
     init {
         getUsers()
@@ -20,10 +20,10 @@ class MainActivityViewModel @Inject constructor(
 
     private fun getUsers() {
         val disposable = usersUseCase.execute(
-            Consumer { users: List<User> ->
+            { users: List<User> ->
                 usersLiveData.postValue(users)
             },
-            Consumer {
+            {
                 if (it != null) {
 
                 }
