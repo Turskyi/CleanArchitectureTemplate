@@ -5,19 +5,18 @@ import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import androidx.fragment.app.FragmentTransaction
-import kotlinx.android.synthetic.main.activity_main.*
+import dagger.android.support.DaggerAppCompatActivity
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.toast
 import ua.turskyi.democleanarchitecture.R
 import ua.turskyi.democleanarchitecture.common.di.qualifiers.ViewModelInjection
-import ua.turskyi.democleanarchitecture.common.ui.base.BaseActivity
-import ua.turskyi.democleanarchitecture.features.second.SecondActivity
+import ua.turskyi.democleanarchitecture.databinding.ActivityMainBinding
 import ua.turskyi.democleanarchitecture.features.main.detail.DetailFragment
+import ua.turskyi.democleanarchitecture.features.second.SecondActivity
 import javax.inject.Inject
 
 // TODO: 5
-class MainActivity : BaseActivity() {
-    override fun layoutRes(): Int = R.layout.activity_main
+class MainActivity : DaggerAppCompatActivity() {
 
     companion object {
         const val VISIBILITY = "visibility"
@@ -29,10 +28,12 @@ class MainActivity : BaseActivity() {
     @Inject
     @field:ViewModelInjection
     lateinit var viewModel: MainActivityViewModel
-
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         var visibilityFromIntent = intent.getIntExtra(VISIBILITY, GONE)
         initListeners()
@@ -40,11 +41,11 @@ class MainActivity : BaseActivity() {
     }
 
     private fun initListeners() {
-        tvMain.setOnClickListener {
+        binding.tvMain.setOnClickListener {
             startActivity(SecondActivity.getIntent(this, true))
         }
 
-        tvFragment.setOnClickListener {
+        binding.tvFragment.setOnClickListener {
 //            val details = DetailFragment()
 //            val ft = supportFragmentManager.beginTransaction()
 //            details.setId(0)
@@ -52,10 +53,10 @@ class MainActivity : BaseActivity() {
 //            ft.addToBackStack(null)
 //            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
 //            ft.commit()
-            if (fragmentContainer.visibility == GONE) {
-                fragmentContainer.visibility = VISIBLE
+            if (binding.fragmentContainer.visibility == GONE) {
+                binding.fragmentContainer.visibility = VISIBLE
             } else {
-                fragmentContainer.visibility = GONE
+                binding.fragmentContainer.visibility = GONE
             }
 
             showDetailFragmentById(1)

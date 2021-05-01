@@ -12,7 +12,7 @@ class ApiServicesModule {
 
     @Provides
     @Singleton
-    fun provideAuthService(retrofit: Retrofit): UserApiService =
-        retrofit.create(UserApiService::class.java)
-
+    fun provideAuthService(retrofit: Retrofit): UserApiService {
+        return retrofit.create(UserApiService::class.java)
+    }
 }

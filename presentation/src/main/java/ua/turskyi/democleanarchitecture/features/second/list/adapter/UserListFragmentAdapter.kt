@@ -1,12 +1,10 @@
 package ua.turskyi.democleanarchitecture.features.second.list.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.user_item.view.*
-import ua.turskyi.democleanarchitecture.R
+import ua.turskyi.democleanarchitecture.databinding.UserItemBinding
 import ua.turskyi.domain.models.User
 
 class UserListFragmentAdapter: RecyclerView.Adapter<UserListFragmentAdapter.ExampleViewHolder>() {
@@ -18,9 +16,7 @@ class UserListFragmentAdapter: RecyclerView.Adapter<UserListFragmentAdapter.Exam
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExampleViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(
-            R.layout.user_item,
-            parent, false)
+        val itemView = UserItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ExampleViewHolder(itemView)
     }
 
@@ -32,7 +28,7 @@ class UserListFragmentAdapter: RecyclerView.Adapter<UserListFragmentAdapter.Exam
 
     override fun getItemCount() = exampleList.size
 
-    class ExampleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ExampleViewHolder(itemView: UserItemBinding) : RecyclerView.ViewHolder(itemView.root) {
         val textView1: TextView = itemView.tvName
         val textView2: TextView = itemView.tvPhone
     }

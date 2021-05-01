@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
@@ -17,13 +16,13 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    android {
-        compileOptions {
-            sourceCompatibility 1.8
-            targetCompatibility 1.8
-        }
+    buildFeatures {
+        viewBinding true
     }
-
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
     buildTypes {
         release {
             minifyEnabled false
