@@ -9,7 +9,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 @Module
 class NetworkModule {
 
-//    there is base url it putted directly
     @Provides
     fun provideRetrofit(): Retrofit =
         Retrofit.Builder()
