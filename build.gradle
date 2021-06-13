@@ -21,16 +21,17 @@ subprojects {
             // Kotlin
             implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
 
-            // Rx
-            implementation "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion"
-            implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
-
-            // Dagger
+            //    Does not work with version 2.35.1
+            // (di) Dagger
             kapt "com.google.dagger:dagger-compiler:$daggerVersion"
             kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
             implementation "com.google.dagger:dagger:$daggerVersion"
             implementation "com.google.dagger:dagger-android:$daggerVersion"
             implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+
+            // Rx
+            implementation "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion"
+            implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
         }
     }
 }
